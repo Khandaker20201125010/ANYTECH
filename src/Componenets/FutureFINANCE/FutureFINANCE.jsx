@@ -80,18 +80,18 @@ const FutureFINANCE = () => {
 
       {/* Right Image Section */}
       <div className="md:w-1/2 relative max-sm:hidden">
-        <div
-          className="max-sm:hidden absolute -top-20 -left-20 w-[400px] h-[140px] bg-gradient-to-r from-blue-300 via-blue-100 to-white rotate-[-220deg] -z-10"
+        <motion.div
+          className="max-sm:hidden absolute -top-20 -left-20 w-[400px] h-[140px] bg-gradient-to-r from-sky-200 via-blue-100 to-white rotate-[-220deg] -z-10"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 70% 100%, 35% 100%)",
           }}
-          animate={{ y: [0, -10, 0] }} // Floating effect only
+          animate={{ y: [0, -10, 0] }} // Floating effect
           transition={{
             duration: 5, // Time for one complete up-down cycle
             repeat: Infinity, // Infinite looping
             repeatType: "mirror", // Moves back and forth smoothly
           }}
-        ></div>
+        ></motion.div>
         {/* Main Image */}
         <motion.img
           src={framers4}
