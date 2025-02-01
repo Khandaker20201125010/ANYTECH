@@ -113,7 +113,7 @@ const Banner = () => {
         <motion.img
           src={b8}
           alt="wave"
-          className="absolute w-5/4 top-0 right-0 md:hidden border h-1/2"
+          className="absolute w-5/4 top-0 right-0 md:hidden  h-1/2"
           style={{ x: -mouseX * 5, y: -mouseY * 5 }}
         />
       </div>

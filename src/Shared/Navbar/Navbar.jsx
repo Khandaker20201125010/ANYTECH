@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/icon/easy-banking/logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Navbar = () => {
   const links = (
@@ -103,15 +104,15 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-         <div className="">
+        <Link to='/'>  <div className="">
          <img className="md:mx-40 w-40" src={logo} alt="" />
-         </div>
+         </div></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex gap-5 menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Contact Us </a>
+        <a className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-lg btn-outline text-white border-white hover:text-blue-500">Contact Us  <MdOutlineKeyboardArrowRight /></a>
       </div>
     </div>
   );
