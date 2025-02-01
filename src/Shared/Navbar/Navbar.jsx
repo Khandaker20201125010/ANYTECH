@@ -1,70 +1,58 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import logo from "../../assets/images/icon/easy-banking/logo.svg";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const links = (
     <>
-      <li>
-        <details
-          className=""
-          data-tip="Solutions"
-        >
-          <summary className="font-bold text-white hover:text-yellow-600 cursor-pointer">
-            Solutions
-          </summary>
-          <ul className="p-2 bg-gray-800 rounded-md">
-            <li>
-              <NavLink
-                to="/anycaas"
-                className="text-white hover:text-yellow-600"
-              >
-                AnyCaaS
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/anybaas"
-                className="text-white hover:text-yellow-600"
-              >
-                AnyBaaS
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/anypaas"
-                className="text-white hover:text-yellow-600"
-              >
-                AnyPaaS
-              </NavLink>
-            </li>
-          </ul>
-        </details>
-      </li>
-
-      <li>
+      <li className="group relative w-full whitespace-nowrap group lg:py-3 lg:px-6   transition-all duration-500 cursor-pointer">
         <NavLink
-          data-tip="Our Collections"
-          className={({ isActive }) =>
-            isActive
-              ? "font-bold text-yellow-600 hover:text-yellow-700  "
-              : "font-bold text-white hover:text-yellow-600  "
-          }
-          to="/allCollections"
+          to="/services"
+          className="font-bold text-white hover:text-white-600 cursor-pointer"
+        >
+          Services
+        </NavLink>
+        <ul className="absolute left-0 hidden group-hover:block bg-gray-100 p-2 rounded-sm shadow-md w-64 mt-2">
+          <li>
+            <NavLink
+              to="/anycaas"
+              className="text-black hover:text-white-600 block p-2"
+            >
+              AnyCaaS
+            </NavLink>
+          </li>
+          <div className="border-t border-gray-300 my-1"></div>
+          <li>
+            <NavLink
+              to="/anybaas"
+              className="text-black hover:text-white-600 block p-2"
+            >
+              AnyBaaS
+            </NavLink>
+          </li>
+          <div className="border-t border-gray-300 my-1"></div>
+          <li>
+            <NavLink
+              to="/anypaas"
+              className="text-black hover:border-b-2 border-white block p-2"
+            >
+              AnyPaaS
+            </NavLink>
+          </li>
+        </ul>
+      </li>
+      <li className="w-full  whitespace-nowrap group lg:py-3 lg:px-6 border-b border-transparent hover:border-white hover:border-opacity-100 transition-all duration-500 cursor-pointer">
+        <NavLink
+          className="font-bold text-white hover:text-white-600 cursor-pointer"
+          to="/Services"
         >
           Services
         </NavLink>
       </li>
-      <li>
+      <li className="w-full whitespace-nowrap group lg:py-3 lg:px-6 border-b border-transparent hover:border-white hover:border-opacity-100 transition-all duration-500 cursor-pointer">
         <NavLink
-          data-tip="Our Collections"
-          className={({ isActive }) =>
-            isActive
-              ? "font-bold text-yellow-600 hover:text-yellow-700  "
-              : "font-bold text-white hover:text-yellow-600  "
-          }
-          to="/Contacts"
+          className="font-bold text-white hover:text-white-600 cursor-pointer"
+          to="/About Us"
         >
           About Us
         </NavLink>
@@ -73,8 +61,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
+    <div className="container mx-auto md:fixed navbar bg-transparent max-sm:bg-blue-500 z-50">
+      <div className=" navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -115,37 +103,15 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+         <div className="">
+         <img className="md:mx-40 w-40" src={logo} alt="" />
+         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <details>
-              <summary>Solutions</summary>
-              <ul className="p-2">
-                <li>
-                  <a>AnyCaaS</a>
-                </li>
-                <li>
-                  <a>AnyBaaS</a>
-                </li>
-                <li>
-                  <a>AnyPaaS</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 1</a>
-          </li>
-
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className="flex gap-5 menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="btn">Contact Us </a>
       </div>
     </div>
   );
