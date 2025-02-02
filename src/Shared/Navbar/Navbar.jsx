@@ -15,6 +15,7 @@ const Navbar = () => {
   const [navColor, setNavColor] = useState("bg-transparent"); // Navbar background color
   const [textColor, setTextColor] = useState("text-white"); // Navbar text color
   const [buttonColor, setButtonColor] = useState("bg-transparent"); // Button color
+  const [lanColor, setLanColor] = useState("bg-transparent"); // Button color
   const [logoVisible, setLogoVisible] = useState(logo); 
 
   const changeLanguage = (lng) => {
@@ -44,7 +45,8 @@ const Navbar = () => {
         setNavbarVisible(true); // Show navbar when scrolling up
         setNavColor(currentScrollY === 0 ? "bg-transparent" : "bg-white"); // Transparent at top, else white
         setTextColor(currentScrollY === 0 ? "text-white" : "text-blue-500"); // Keep text white at top, else blue when scrolling up
-        setButtonColor(currentScrollY === 0 ? "bg-transparent text-white" : "bg-orange-400 text-white"); // Change button color to orange when scrolling up
+        setLanColor(currentScrollY === 0 ? "text-white" : "text-blue-500"); // Keep text white at top, else blue when scrolling up
+        setButtonColor(currentScrollY === 0 ? "bg-transparent text-white hover:bg-white" : "bg-orange-400 text-white"); // Change button color to orange when scrolling up
       }
       setLastScrollY(currentScrollY); // Update last scroll position
     }
@@ -115,7 +117,7 @@ const Navbar = () => {
       <div className="relative inline-block">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full border bg-transparent ${textColor} font-bold transition-all ${buttonColor}`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border bg-transparent ${textColor} font-bold transition-all `}
         >
           <FiGlobe size={18} />
           EN
@@ -131,10 +133,10 @@ const Navbar = () => {
         </button>
 
         {isOpen && (
-          <ul className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-md p-2">
+          <ul className="absolute left-0 mt-2 w-56 bg-gray-100 rounded-md shadow-md p-2">
             <li
               onClick={() => changeLanguage("en")}
-              className="p-2 hover:bg-gray-200 cursor-pointer border-b border-gray-300"
+              className="p-2 hover:bg-gray-200 cursor-pointer border-b border-gray-300 "
             >
               EN (English)
             </li>
