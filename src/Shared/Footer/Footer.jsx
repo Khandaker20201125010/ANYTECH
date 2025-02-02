@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="max-sm:hidden flex items-center gap-6 text-cyan-400 text-lg">
           <h3 className="text-white font-medium relative">
             Our
-            <span className="font-bold bg-blue-600 px-1 rounded-sm text-white">
+            <span className="font-bold  px-1 rounded-sm text-white">
               Solutions
             </span>
           </h3>
