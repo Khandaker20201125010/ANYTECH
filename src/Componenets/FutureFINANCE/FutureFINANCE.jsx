@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import framers2 from "../../assets/images/frames/framers/3.svg";
 import framers3 from "../../assets/images/frames/framers/c1.svg";
 import framers4 from "../../assets/images/frames/framers/c2.avif";
@@ -7,15 +8,16 @@ import framers6 from "../../assets/images/frames/framers/c4.svg";
 import { motion } from "framer-motion";
 
 const FutureFINANCE = () => {
+  const { t } = useTranslation();
   return (
     <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 mt-10 px-6">
       {/* Left Text Section */}
       <div className="md:w-1/2 space-y-6 text-start ">
         <h2 className="text-blue-500 font-bold uppercase tracking-wider ">
-          Powering the Future of Finance
+        {t("future")} 
         </h2>
         <h1 className="text-3xl md:text-7xl text-blue-950 font-semibold  ">
-          Uncovering new ways to delight customers
+        {t("futureTitle")} 
         </h1>
         <div className="md:w-1/2 relative md:hidden mt-24">
         <motion.div
@@ -79,14 +81,10 @@ const FutureFINANCE = () => {
           {/* Decorative Elements */}
         </div>
         <p className="text-blue-900 font-bold mt-10 w-4/5">
-          AnyTech is revolutionising financial technology by introducing
-          innovative and real-time transaction account processing capabilities,
-          specifically designed for retail financial services.
+        {t("futureDes")}   
         </p>
         <p className="text-gray-700 mt-6">
-          Our modern approach surpasses traditional banking and card processing
-          systems, empowering you with the most advanced technology for lasting
-          success.
+        {t("futurePra")}
         </p>
       </div>
 

@@ -7,29 +7,28 @@ import gsap from "gsap";
 import icon1 from "../../assets/images/icon/easy-banking/icon1.svg";
 import icon2 from "../../assets/images/icon/easy-banking/icon2.avif";
 import icon3 from "../../assets/images/icon/easy-banking/icon3.svg";
+import { useTranslation } from "react-i18next";
 
 const cards = [
   {
     icon: icon1,
-    title: "Full-suite solutions",
-    description:
-      "Experience the ease of integration across various banking and payment functions with our comprehensive suite of solutions.",
+    title: "fullSuiteSolutions", // Changed to use keys
+    description: "experienceEaseOfIntegration", // Changed to use keys
   },
   {
     icon: icon2,
-    title: "Simplify the complex",
-    description:
-      "Simplify complex processes and optimise your financial operations by leveraging the power of AI, Blockchain, Cloud Computing, and Big Data.",
+    title: "simplifyComplex",
+    description: "simplifyFinancialOperations",
   },
   {
     icon: icon3,
-    title: "Cutting-edge tech",
-    description:
-      "We seamlessly combine cutting-edge technologies, resulting in an unparalleled fintech experience for financial institutions.",
+    title: "cuttingEdgeTech",
+    description: "combineCuttingEdgeTechnologies",
   },
 ];
 
 const OURPHILOSOPHYCARD = () => {
+  const { t } = useTranslation();
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -81,9 +80,11 @@ const OURPHILOSOPHYCARD = () => {
               <div className="flex justify-start mb-4">
                 <img className="w-12" src={card.icon} alt={card.title} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">{card.title}</h3>
+              <h3 className="text-xl font-bold text-gray-800">
+                {t(card.title)} {/* Translated title */}
+              </h3>
               <p className="text-gray-600 mt-2 flex-grow w-80 h-[80px] overflow-hidden line-clamp-3">
-                {card.description}
+                {t(card.description)} {/* Translated description */}
               </p>
             </div>
           </SwiperSlide>
