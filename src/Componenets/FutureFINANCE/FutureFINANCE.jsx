@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next";
-import framers2 from "../../assets/images/frames/framers/3.svg";
 import framers3 from "../../assets/images/frames/framers/c1.svg";
 import framers4 from "../../assets/images/frames/framers/c2.avif";
 import framers5 from "../../assets/images/frames/framers/c3.svg";
 import framers6 from "../../assets/images/frames/framers/c4.svg";
+import framers7 from "../../assets/images/frames/framers/finance-figure-svg1.svg";
+
 
 import { motion } from "framer-motion";
 
-const FutureFINANCE = () => {
+const   FutureFINANCE = () => {
   const { t } = useTranslation();
   return (
     <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 mt-10 px-6">
@@ -19,19 +20,17 @@ const FutureFINANCE = () => {
         <h1 className="text-3xl md:text-7xl text-blue-950 font-semibold  ">
         {t("futureTitle")} 
         </h1>
-        <div className="md:w-1/2 relative md:hidden mt-24">
-        <motion.div
-          className="absolute -top-16 -left-12 w-[250px] h-[120px] bg-gradient-to-r from-sky-200 via-blue-100 to-white rotate-[-220deg] -z-10"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 70% 100%, 35% 100%)",
-          }}
+        <div className="md:w-1/2 relative md:hidden mt-28">
+        <motion.img
+          className="  absolute -top-20 -z-10"
+          src={framers7}  
           animate={{ y: [0, -10, 0] }} // Floating effect
           transition={{
             duration: 5, // Time for one complete up-down cycle
             repeat: Infinity, // Infinite looping
             repeatType: "mirror", // Moves back and forth smoothly
           }}
-        ></motion.div>
+        ></motion.img>
           {/* Main Image */}
           <motion.img
             src={framers4}
@@ -90,18 +89,16 @@ const FutureFINANCE = () => {
 
       {/* Right Image Section */}
       <div className="md:w-1/2 relative max-sm:hidden">
-        <motion.div
-          className="max-sm:hidden absolute -top-20 -left-20 w-[400px] h-[140px] bg-gradient-to-r from-sky-200 via-blue-100 to-white rotate-[-220deg] -z-10"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 70% 100%, 35% 100%)",
-          }}
+        <motion.img
+          className="max-sm:hidden absolute -top-24 -z-10"
+          src={framers7}  
           animate={{ y: [0, -10, 0] }} // Floating effect
           transition={{
             duration: 5, // Time for one complete up-down cycle
             repeat: Infinity, // Infinite looping
             repeatType: "mirror", // Moves back and forth smoothly
           }}
-        ></motion.div>
+        ></motion.img>
         {/* Main Image */}
         <motion.img
           src={framers4}

@@ -8,8 +8,6 @@ import s3 from "../../assets/images/icon/easy-banking/s3.avif";
 import s4 from "../../assets/images/icon/easy-banking/s4.avif";
 import { useTranslation } from "react-i18next";
 
-
-
 const TechnologyBuilt = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
@@ -76,12 +74,12 @@ const TechnologyBuilt = () => {
             key={slide.id}
             className={`px-4 py-2 rounded-full font-semibold transition-all ${
               index === activeIndex
-                ? "bg-blue-300 text-white"
+                ? "bg-blue-300 text-blue-500"
                 : "bg-gray-50 text-blue-400 hover:bg-teal-50"
             }`}
             onClick={() => goToSlide(index)}
           >
-            {t(slide.title)} {/* Using translation for title */}
+            {t(slide.title)} 
           </button>
         ))}
       </div>
@@ -116,7 +114,8 @@ const TechnologyBuilt = () => {
                 <p className="text-blue-900 mt-2">
                   <strong>{t(slide.p1)}</strong> {/* Translated p1 */}
                 </p>
-                <p className="text-blue-900 mt-2">{t(slide.p2)}</p> {/* Translated p2 */}
+                <p className="text-blue-900 mt-2">{t(slide.p2)}</p>{" "}
+                {/* Translated p2 */}
               </div>
               {/* Image */}
               <div className="md:w-1/2 mt-4 md:mt-0 max-sm:hidden">

@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 
-
-
 const Main = () => {
-
-
   return (
-    <div className="max-w-[1440px] mx-auto" > {/* 🔹 Key added here */}
+    <div className="flex flex-col min-h-screen max-w-[1440px] mx-auto"> 
       <Navbar />
-      <Outlet /> {/* 🔹 No need to add key here */}
-      <Footer />
+      <div className="flex-grow"> 
+        <Outlet />
+      </div>
+      <Footer /> 
     </div>
   );
 };

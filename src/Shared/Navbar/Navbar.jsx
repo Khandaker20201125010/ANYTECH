@@ -107,7 +107,7 @@ const Navbar = () => {
       <li className="w-full whitespace-nowrap group lg:py-3 lg:px-6 border-b border-transparent hover:border-white hover:border-opacity-100 transition-all duration-500 cursor-pointer">
         <NavLink
           className={`font-bold ${textColor} hover:text-white-600 cursor-pointer`}
-          to="/about-us"
+          to="/aboutUs"
         >
           {t("aboutUs")} {/* Change to t('aboutUs') */}
         </NavLink>

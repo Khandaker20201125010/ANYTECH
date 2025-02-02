@@ -1,9 +1,10 @@
 import React from 'react';
+import AboutBanner from '../Componenets/Banner/AboutBanner';
 
 const Aboutus = () => {
     return (
         <div>
-            dhone
+           <AboutBanner></AboutBanner>
         </div>
     );
 };
