@@ -6,6 +6,9 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { FiGlobe } from "react-icons/fi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { SlMenu } from "react-icons/sl";
+import { AiOutlineClose } from "react-icons/ai";
+import { LiaTimesSolid } from "react-icons/lia";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -16,7 +19,12 @@ const Navbar = () => {
   const [textColor, setTextColor] = useState("text-white"); // Navbar text color
   const [buttonColor, setButtonColor] = useState("bg-transparent"); // Button color
   const [lanColor, setLanColor] = useState("bg-transparent"); // Button color
-  const [logoVisible, setLogoVisible] = useState(logo); 
+  const [logoVisible, setLogoVisible] = useState(logo);
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMenu = () => {
+    setClick(false);
+  };
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -35,20 +43,22 @@ const Navbar = () => {
       }
 
       if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setNavbarVisible(false); // Hide navbar when scrolling down
-        setNavColor("bg-white"); // Solid background when scrolling down
-        setTextColor("text-white"); // Keep text color white when scrolling down
-        setButtonColor("bg-transparent"); // Keep button transparent
+        setNavbarVisible(false);
+        setNavColor("bg-white");
+        setTextColor("text-white");
+        setButtonColor("bg-transparent");
       } else {
-        // Scrolling up
-        setNavbarVisible(true); // Show navbar when scrolling up
-        setNavColor(currentScrollY === 0 ? "bg-transparent" : "bg-white"); // Transparent at top, else white
-        setTextColor(currentScrollY === 0 ? "text-white" : "text-blue-500"); // Keep text white at top, else blue when scrolling up
-        setLanColor(currentScrollY === 0 ? "text-white" : "text-blue-500"); // Keep text white at top, else blue when scrolling up
-        setButtonColor(currentScrollY === 0 ? "bg-transparent text-white hover:bg-white" : "bg-orange-400 text-white"); // Change button color to orange when scrolling up
+        setNavbarVisible(true);
+        setNavColor(currentScrollY === 0 ? "bg-transparent" : "bg-white");
+        setTextColor(currentScrollY === 0 ? "text-white" : "text-blue-500");
+        setLanColor(currentScrollY === 0 ? "text-white" : "text-blue-500");
+        setButtonColor(
+          currentScrollY === 0
+            ? "bg-transparent text-white hover:bg-white"
+            : "bg-orange-400 text-white"
+        );
       }
-      setLastScrollY(currentScrollY); // Update last scroll position
+      setLastScrollY(currentScrollY);
     }
   };
 
@@ -64,10 +74,10 @@ const Navbar = () => {
     <>
       <li className="group relative w-full whitespace-nowrap group lg:py-3 lg:px-6 transition-all duration-500 cursor-pointer">
         <NavLink
-          to="/services"
+          to="/solutions"
           className={`font-bold ${textColor} hover:text-white-600 cursor-pointer`}
         >
-          {t("services")} {/* Change to t('services') */}
+          {t("Solutions")}
         </NavLink>
         <ul className="absolute left-0 hidden group-hover:block bg-gray-100 p-2 rounded-sm shadow-md w-64 mt-2">
           <li>
@@ -103,7 +113,7 @@ const Navbar = () => {
           className={`font-bold ${textColor} hover:text-white-600 cursor-pointer`}
           to="/services"
         >
-          {t("services")} {/* Change to t('services') */}
+          {t("services")}
         </NavLink>
       </li>
       <li className="w-full whitespace-nowrap group lg:py-3 lg:px-6 border-b border-transparent hover:border-white hover:border-opacity-100 transition-all duration-500 cursor-pointer">
@@ -111,13 +121,13 @@ const Navbar = () => {
           className={`font-bold ${textColor} hover:text-white-600 cursor-pointer`}
           to="/aboutUs"
         >
-          {t("aboutUs")} {/* Change to t('aboutUs') */}
+          {t("aboutUs")}
         </NavLink>
       </li>
-      <div className="relative inline-block">
+      <div className="relative inline-block ">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full border bg-transparent ${textColor} font-bold transition-all `}
+          className={`flex  items-center gap-2 px-4 py-2 rounded-full border bg-transparent ${textColor} font-bold transition-all `}
         >
           <FiGlobe size={18} />
           EN
@@ -166,51 +176,11 @@ const Navbar = () => {
 
   return (
     <div
-      className={`md:fixed navbar w-full ${navColor} z-50 transition-all duration-300 ${
+      className={`md:fixed navbar w-full ${navColor} z-50 transition-all max-sm:bg-blue-500 duration-300 ${
         navbarVisible ? "transform-none" : "-translate-y-full"
       }`}
     >
       <div className="container mx-auto navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
         <Link to="/">
           <div className="w-40">
             <img className="md:mx-40 w-40" src={logoVisible} alt="" />
@@ -221,9 +191,68 @@ const Navbar = () => {
         <ul className="flex gap-5 menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className={`btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-lg btn-outline ${buttonColor} border-white hover:text-blue-500`}>
+        <a
+          className={`max-sm:hidden btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-lg btn-outline ${buttonColor} border-white hover:text-blue-500 mx-20`}
+        >
           {t("contactUs")} <MdOutlineKeyboardArrowRight />
         </a>
+      </div>
+      <div>
+        <div className="navbar relative md:hidden">
+          <div className="navbar-end fixed top-0 right-0 z-[9999]">
+            <div className="flex m-5 gap-5 lg:gap-10 justify-center items-center">
+              <div
+                onClick={handleClick}
+                className="icon-wrapper cursor-pointer"
+              >
+                {click ? (
+                  <AiOutlineClose size={30} className="text-white" />
+                ) : (
+                  <SlMenu size={30} className="text-white font-bold" />
+                )}
+              </div>
+            </div>
+
+            <div
+              className={`fixed top-20 left-0 max-sm:w-full h-full bg-base-200 shadow-lg transition-transform duration-500 ease-in-out z-[10000] border-r-2 border-blue-500 ${
+                click ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
+              <ul
+                className="bg-blue-500 p-4 space-y-6 text-2xl min-h-screen overflow-y-auto flex flex-col items-center"
+                style={{
+                  maxHeight: "calc(100vh - 64px)",
+                  scrollbarWidth: "none", // Hide scrollbar for Firefox
+                  msOverflowStyle: "none", // Hide scrollbar for IE/Edge
+                }}
+              >
+                <style>{`
+    ul::-webkit-scrollbar {
+      display: none;
+    }
+  `}</style>
+
+                {links}
+
+                <div className="flex justify-center w-full pb-10">
+                  <button
+                    className={`btn w-full flex justify-center btn-outline hover:bg-transparent text-white  border-white `}
+                  >
+                    {t("contactUs")} <MdOutlineKeyboardArrowRight />
+                  </button>
+                </div>
+              </ul>
+            </div>
+
+          
+            {click && (
+              <div
+                className="fixed inset-0 z-[1]" 
+                onClick={closeMenu}
+              ></div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

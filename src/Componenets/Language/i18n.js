@@ -69,6 +69,7 @@ i18n
           footerLinkcs:"AnyCaaS",
           footerLinkbs:"AnyBaaS",
           footerLinkps:"AnyPaaS",
+          Solutions: "Solutions",
         },
       },
       th: {
@@ -133,6 +134,7 @@ i18n
           footerLinkcs: "AnyCaaS",
           footerLinkbs: "AnyBaaS",
           footerLinkps: "AnyPaaS",
+          Solutions: "ผลิตภัณฑ์",
         },
       },
       id: {
@@ -197,6 +199,7 @@ i18n
           footerLinkcs: "AnyCaaS",
           footerLinkbs: "AnyBaaS",
           footerLinkps: "AnyPaaS",
+          Solutions: "Solusi",
         },
       },
       tw: {
@@ -261,6 +264,7 @@ i18n
           footerLinkcs: "任何CaaS",
           footerLinkbs: "任何BaaS",
           footerLinkps: "任何PaaS",
+          Solutions: "解決方案",
 
         },
       },
