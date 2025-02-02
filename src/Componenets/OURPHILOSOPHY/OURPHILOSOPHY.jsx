@@ -1,5 +1,6 @@
 import background1 from "../../assets/images/icon/easy-banking/backgroundimg.avif";
 import background2 from "../../assets/images/icon/easy-banking/backgroundimg2.avif";
+import OURPHILOSOPHYCARD from "./OURPHILOSOPHYCARD";
 
 
 const OURPHILOSOPHY = () => {
@@ -21,6 +22,7 @@ const OURPHILOSOPHY = () => {
         </div>
 
       </div>
+      <OURPHILOSOPHYCARD></OURPHILOSOPHYCARD>
 
     </div>
   );

@@ -10,19 +10,31 @@ const FutureFINANCE = () => {
   return (
     <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 mt-10 px-6">
       {/* Left Text Section */}
-      <div className="md:w-1/2 space-y-6">
+      <div className="md:w-1/2 space-y-6 text-start ">
         <h2 className="text-blue-500 font-bold uppercase tracking-wider ">
           Powering the Future of Finance
         </h2>
-        <h1 className="text-5xl md:text-7xl text-blue-950 font-semibold  ">
+        <h1 className="text-3xl md:text-7xl text-blue-950 font-semibold  ">
           Uncovering new ways to delight customers
         </h1>
-        <div className="md:w-1/2 relative md:hidden">
+        <div className="md:w-1/2 relative md:hidden mt-24">
+        <motion.div
+          className="absolute -top-16 -left-12 w-[250px] h-[120px] bg-gradient-to-r from-sky-200 via-blue-100 to-white rotate-[-220deg] -z-10"
+          style={{
+            clipPath: "polygon(0% 0%, 100% 0%, 70% 100%, 35% 100%)",
+          }}
+          animate={{ y: [0, -10, 0] }} // Floating effect
+          transition={{
+            duration: 5, // Time for one complete up-down cycle
+            repeat: Infinity, // Infinite looping
+            repeatType: "mirror", // Moves back and forth smoothly
+          }}
+        ></motion.div>
           {/* Main Image */}
           <motion.img
             src={framers4}
             alt="Finance"
-            className="w-[76%] h-auto mx-auto rounded-lg shadow-xl"
+            className="w-[76%] h-auto mx-auto shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -140,6 +152,7 @@ const FutureFINANCE = () => {
 
         {/* Decorative Elements */}
       </div>
+   
     </div>
   );
 };
